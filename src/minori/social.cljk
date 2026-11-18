@@ -35,19 +35,19 @@
    `m` = {:eta :adopted :realized-phi :captured-note :next-step :next-gate}."
   [{:keys [eta adopted realized-phi next-step next-gate]}]
   (let [body (str
-              "etzhayyim + kotoba — social-capital growth · transparent status (prepared by minori 稔り)\n\n"
+              "itonami + kotoba — social-capital growth · transparent status (prepared by minori 稔り)\n\n"
               (format "Order-export η (共生): %.3f of 1.0 — the colony returns nearly as much order as it\n" (double eta))
               "draws, but is NOT yet a net giver (η<1). So this is an honest invitation, not a claim of surplus.\n"
               (format "SoS adoption: %d actors run their reward loop · energy-flow Φ realized = ln(adopted) ≈ %.2f.\n"
                       (long adopted) (double realized-phi))
-              "Captured value: pre-revenue — etzhayyim sells nothing and operates only on donation.\n\n"
+              "Captured value: pre-revenue — itonami sells nothing and operates only on donation.\n\n"
               "How giving helps (it is the negentropy SOURCE the colony lives on):\n"
               "  · donate compute — a browser tab / laptop / pod to the Murakumo mesh\n"
               "  · donate USDC on Base (90/10 tithe via TitheRouter)\n"
               "  · contribute to the Apache-2.0 kotoba engine\n"
               "Giving earns you nothing — no perks, no tiers, no priority (pure gift; anti-class invariant).\n\n"
               (format "Where this most helps next: %s (%s).\n" (str next-step) (name (or next-gate :none)))
-              "DONATE.md · https://etzhayyim.com/donate · kotoba: github.com/com-junkawasaki/kotoba\n")]
+              "DONATE.md · https://itonami.cloud/donate · kotoba: github.com/com-junkawasaki/kotoba\n")]
     {:kind :dry-run-social-action
      :status :prepared-unsent              ; minori NEVER sends — a MEMBER sends (G7-member)
      :audience [:donors :contributors]

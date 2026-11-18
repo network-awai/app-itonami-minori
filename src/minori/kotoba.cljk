@@ -4,7 +4,7 @@
    append-only commit-DAG chained by CID (the kaname/busshi/ugachi pattern). Self-contained datom-emit
    + DETERMINISTIC CID (no wall clock / no randomness; floats fixed-precision so the CID is stable; a
    later edit breaks every downstream CID = tamper-evident). The live-engine push
-   (com.etzhayyim.apps.kotoba.datomic.transact → :8077) is a G7/operator env-gated leg, DRY-RUN by
+   (cloud.itonami.apps.kotoba.datomic.transact → :8077) is a G7/operator env-gated leg, DRY-RUN by
    default — no server key, no network here (host allowlist loopback per ADR-2605215000)."
   (:require [minori.ledger :as ledger]))   ; reuse the deterministic sha256-hex
 
@@ -37,7 +37,7 @@
    :cid (ledger/sha256-hex (str (pr-str datoms) "|" parent))})
 
 (defn bridge!
-  "Push the commit to the LIVE kotoba engine via com.etzhayyim.apps.kotoba.datomic.transact.
+  "Push the commit to the LIVE kotoba engine via cloud.itonami.apps.kotoba.datomic.transact.
    DRY-RUN by default (returns the would-be tx, no network); LIVE only when MINORI_KOTOBA_LIVE=1 +
    an operator DID is present (G7) — loopback host allowlist, no-server-key (operator bearer)."
   [commit-node]

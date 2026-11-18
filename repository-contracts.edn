@@ -1,8 +1,8 @@
-[{:repository/name "com-etzhayyim-minori"
+[{:repository/name "app-itonami-minori"
   :repository/category :actor
   :repository/source-format :edn
   :repository/authoritative true
-  :repository/west-path "orgs/etzhayyim/com-etzhayyim-minori"
+  :repository/west-path "orgs/itonami/app-itonami-minori"
   :repository/legacy-path "20-actors/minori"
   :repository/runtime :babashka
   :repository/test-command "kbb -M:test"
