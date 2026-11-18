@@ -4,7 +4,8 @@
    (capture = real settled revenue, G7-operator; Φ = closing the SoS running-gap rollout; adoption =
    the registered roster). It computes the weighted headroom still available per lever and FLAGS
    :converged when self-drivable growth is exhausted AND recent beats show no real upward progress —
-   so the loop reports an HONEST plateau (with the external blockers named) instead of spinning.")
+   so the loop reports an HONEST plateau (with the external blockers named) instead of spinning."
+  (:require [kotoba.lang.text :as str]))
 
 (def lever-meta
   "Whether each score lever is something minori can move ALONE, and the gate if not."
@@ -36,7 +37,7 @@
      :blocked-on (->> hs (remove :self-drivable?) (filter #(> (:headroom %) eps))
                       (sort-by :headroom >)
                       (mapv #(-> (select-keys % [:lever :headroom :gate])
-                                 (update :headroom (fn [h] (Double/parseDouble (format "%.4f" h)))))))
+                                 (update :headroom (fn [h] (parse-double (str/format "%.4f" h)))))))
      :verdict (if converged?
                 "converged — self-drivable growth exhausted; remaining headroom is externally gated"
                 "still advancing")}))

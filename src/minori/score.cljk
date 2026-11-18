@@ -3,19 +3,21 @@
    read ON DEMAND from the committed valuation MAP + the live SoS roster (edge-primary,
    no stored verdict). Non-parasitism gated: η<1 ⇒ raw growth is NOT rewarded; the
    reward is the movement of η toward 1 + SoS adoption (the Part-3 capture-rate lever)."
-  (:require [clojure.edn :as edn]
-            [clojure.java.io :as io]))
+  ;; File reads are JVM-only; the growth math below is portable (ClojureScript app, AWAI-3502).
+  #?(:clj (:require [clojure.edn :as edn]
+                    [clojure.java.io :as io])))
 
-(defn read-edn [path] (edn/read-string (slurp path)))
+#?(:clj (defn read-edn [path] (edn/read-string (slurp path))))
 
 (defn clamp01 [x] (max 0.0 (min 1.0 (double x))))
 
+#?(:clj
 (defn roster-adoption
   "Adoption = fraction of the actor roster that holds + runs its SoS reward (ADR-2606212200).
    adopted = count of :actors in system-of-systems.edn; target from the score model."
   [sos-path target]
   (let [adopted (count (:actors (read-edn sos-path)))]
-    {:adopted adopted :target target :p (clamp01 (/ (double adopted) (double target)))}))
+    {:adopted adopted :target target :p (clamp01 (/ (double adopted) (double target)))})))
 
 (defn growth
   "Compute G ∈ [0,1] + components + the non-parasitism-gated reward.
