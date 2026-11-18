@@ -1,0 +1,26 @@
+{
+  "name": "@itonami/minori-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "itonami": {
+    "id": "network.itonami.minori",
+    "title": "Minori",
+    "storageKey": "itonami.minori.v1",
+    "description": "稔り — 社会的な資本の育ち方を、この端末で評価します。共生（η）・採用・価値の捕捉・エネルギー流（Φ）から成長 G を計算し、次に打つ手（憲章に沿う介入だけ）を試算し、伸びしろが外部の条件待ちかを判定します。何も送信せず、寄付の案内も下書きだけです。",
+    "cljsSources": [
+      "../src"
+    ],
+    "storeId": "network.itonami.minori"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "tauri": "tauri",
+    "build:desktop": "npm run build && tauri build --no-bundle",
+    "build:android": "sh scripts/android-apk.sh"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "3.0.0-alpha.6"
+  }
+}
