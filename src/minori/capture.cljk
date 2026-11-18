@@ -20,7 +20,7 @@
 (defn ratio-of
   "Pure: grounded captured÷addressable from a snapshot MAP. Only a :live snapshot with :grounded?
    true yields a grounded (>0-capable) ratio; a :template (or nil) snapshot is honestly ungrounded
-   ⇒ ratio 0.0. Aggregate ratio = Σcaptured / Σaddressable across entities (etzhayyim + kotoba)."
+   ⇒ ratio 0.0. Aggregate ratio = Σcaptured / Σaddressable across entities (itonami + kotoba)."
   [snap]
   (let [ents (->> (vals (dissoc snap :status :grounded? :note)) (filter map?))
         cap  (reduce + 0.0 (keep #(when (number? (:captured-usd-per-year %))

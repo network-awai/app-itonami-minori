@@ -52,7 +52,7 @@ one observe/measure/implement/social-action lever each fire.
 ## Layout
 
 ```
-com-etzhayyim-minori/
+app-itonami-minori/
 ├── system.edn              # SoS membrane + 報酬系 (reward) spec + score model
 ├── src/minori/
 │   ├── score.cljc          # the growth-score model (η/adoption/capture/Φ, gated reward)
